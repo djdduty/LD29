@@ -8,7 +8,7 @@
 #include <MainState.h>
 
 using namespace BearClaw;
-using namespace BcGame;
+using namespace LD29;
 
 int main()
 {
@@ -26,7 +26,7 @@ int main()
     WinInit.Resizable       =   true;
     WinInit.MajorVersion    =   3;
     WinInit.MinorVersion    =   0;
-    WinInit.Title           =   "BearClaw Engine";
+    WinInit.Title           =   "LD29 - FISTS OF TRUTH";
 
     Environ->Init(WinInit);
     GameApp* Game = new GameApp(new MainState());

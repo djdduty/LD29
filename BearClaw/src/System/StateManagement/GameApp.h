@@ -23,7 +23,7 @@ protected:
     
 public:
     GameApp(State* S);
-    ~GameApp();
+	~GameApp();
 
     void Start();
     

@@ -49,6 +49,12 @@ public:
         m_SceneHasBeenSet = true;
     }
 
+	void UnsetScene() {
+		m_Scene = nullptr;
+		m_SceneHasBeenSet = false;
+		m_RenderScene = nullptr;
+	}
+
     Scene* GetScene()
     {
         return m_Scene;

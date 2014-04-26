@@ -25,6 +25,7 @@ void StateManager::Init(GameApp* G)
 void StateManager::ChangeState(State* S)
 {
     State* OldState = m_CurrentState;
+	OldState->DeInit();
     m_CurrentState = S;
     m_CurrentState->Init(this);
     delete OldState;

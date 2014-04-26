@@ -50,5 +50,5 @@ void main()
     } else {
         Color = DiffuseColor;
     }
-    FragColor = Color;
+    FragColor = vec4(Norm,1);//Color;
 }

@@ -277,7 +277,7 @@ void InputManager::Init(BcWindow* Win)
 
 void InputManager::SetMousePosition(const Vec2& pos)
 {
-    BC_LOG("Moving to: %f x %f", pos.x, pos.y);
+    //BC_LOG("Moving to: %f x %f", pos.x, pos.y);
 
     if(pos != MousePosition)
     {

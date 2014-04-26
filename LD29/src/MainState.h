@@ -3,22 +3,25 @@
 
 #include <Scene/Scene.h>
 #include <Components/CameraComponent.h>
-#include <Components/TestRenderComponent.h>
 #include <Renderer/Renderer.h>
 #include <System/StateManagement/State.h>
 #include <Gui/FontString.h>
 
+#include <States/AboutState.h>
+#include <States/GameState.h>
+
 using namespace BearClaw;
 
-namespace BcGame {
+namespace LD29 {
 class MainState : public State
 {
 private:
-    CameraComponent* m_CamComp;
-    Scene* m_Scene;
-    FontString* FontTest;
-    FontString* FontTest2;
-    FontString* FontTest3;
+	FontString* m_TitleString;
+	FontString* m_PlayString;
+	FontString* m_QuitString;
+	FontString* m_AboutString;
+
+	StateManager* m_Manager;
 
 public:
     MainState();
@@ -30,7 +33,7 @@ public:
     void OnDeactivate();
     void Update(f64 DeltaTime);
 
-    //void KeyCallback(char button, Action_Type Type);
+	void UpdateFontScale();
 };
 }
 

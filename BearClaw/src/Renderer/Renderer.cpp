@@ -66,11 +66,6 @@ Renderer::~Renderer(){}
 void Renderer::Init()
 {
     SetupShaders();
-
-    FontFile* Test = new FontFile("font2");
-    Test->Parse();
-    Test1 = new FontString("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG 1234567890", Vec2(0,0), Test, 0.5);
-    Test2 = new FontString("The quick brown fox jumps over the lazy dog 1234567890", Vec2(0,-80), Test, 0.5);
 }
 
 void Renderer::SetupShaders()
@@ -131,9 +126,5 @@ void Renderer::Render()
     }
 
     glClear(GL_DEPTH_BUFFER_BIT);
-    glDisable(GL_DEPTH_TEST);
-    Test1->Render();
-    Test2->Render();
-    glEnable(GL_DEPTH_TEST);
 }
 }

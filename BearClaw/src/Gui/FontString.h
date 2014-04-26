@@ -36,6 +36,7 @@ public:
     }
     
     void AddChar(Byte Code, VertexList* Verts, IndexList* Indices);
+	void SetScale(f32 Scale) { m_Scale = Scale; SetContent(m_Content); }
     void SetContent(string Content);
     void UpdateMesh();
     void Render();
