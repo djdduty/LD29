@@ -22,7 +22,9 @@ protected:
     //TODO BoundingBox
 
 public:
-    RenderNode(BcString Handle) {m_RenderHandle = Handle; m_Transform = new Mat4();m_Material = new Material(this);}
+	bool pRenderLast;
+
+	RenderNode(BcString Handle) { pRenderLast = false; m_RenderHandle = Handle; m_Transform = new Mat4(); m_Material = new Material(this); }
     ~RenderNode() {delete(m_Material);}
     virtual void InitRenderNode() {};
     void PreRender() {m_Material->Bind();m_Material->PrepareForRender();}

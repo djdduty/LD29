@@ -23,6 +23,7 @@ public:
     void UpdateProjection();
     void Translate(Vec3 Trans);
 
+	BcCamera* GetCamera() { return m_Camera; }
     Mat4& GetTransform();
     Mat4& GetProjection();
     Vec3& GetPosition();

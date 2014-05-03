@@ -242,6 +242,18 @@ void MouseMoveCallback(GLFWwindow* Window, double x, double y)
 void MouseButtonCallback(GLFWwindow* Window, int Button, int Action, int mods)
 {
     //TODO
+	//printf("button %d action %d", Button, Action);
+	Action_Type Type;
+	Mouse_Button Butt;
+	if (Action == GLFW_PRESS) Type = BC_PRESSED;
+	if (Action == GLFW_RELEASE) Type = BC_RELEASED;
+	if (Action == GLFW_REPEAT) Type = BC_HELD;
+	if (Button == GLFW_MOUSE_BUTTON_1) Butt = MOUSE_BUTTON_1;
+	if (Button == GLFW_MOUSE_BUTTON_2) Butt = MOUSE_BUTTON_2;
+	if (Button == GLFW_MOUSE_BUTTON_3) Butt = MOUSE_BUTTON_3;
+	if (Button == GLFW_MOUSE_BUTTON_4) Butt = MOUSE_BUTTON_4;
+
+	InputMgr->OnMouseButton(Butt, Type);
 }
 
 InputManager::~InputManager()
@@ -259,6 +271,7 @@ void InputManager::Init(BcWindow* Win)
 
     glfwSetKeyCallback(nwin->GetWindow(), KeyCallback);
     glfwSetCursorPosCallback(nwin->GetWindow(), MouseMoveCallback);
+	glfwSetMouseButtonCallback(nwin->GetWindow(), MouseButtonCallback);
 
     // Init native
     Impl = new InputImpl;

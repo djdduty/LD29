@@ -19,6 +19,8 @@ public:
     void OnDeInit();
     void OnEnable();
     void OnDisable();
+
+	SceneNodes GetChildren() { return m_Children; }
     //TODO PhysicsWorld* GetPhysicsWorld();
 
     bool IsScene()

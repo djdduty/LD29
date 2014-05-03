@@ -1,61 +1,81 @@
 plane
+texture
+Data/Textures/wall.png
 vertex x=3  y=3 z=-3 u=1 v=1 n1=0 n2=0 n3=1 t=2
 vertex x=-3 y=3 z=-3 u=0 v=1 n1=0 n2=0 n3=1 t=2
 vertex x=-3 y=0 z=-3 u=0 v=0 n1=0 n2=0 n3=1 t=2
 vertex x=3  y=0 z=-3 u=1 v=0 n1=0 n2=0 n3=1 t=2
 end
 plane
+texture
+Data/Textures/wall.png
 vertex x=-3 y=3 z=3 u=1 v=1 n1=0 n2=0 n3=-1 t=2
 vertex x=3  y=3 z=3 u=0 v=1 n1=0 n2=0 n3=-1 t=2
 vertex x=3  y=0 z=3 u=0 v=0 n1=0 n2=0 n3=-1 t=2
 vertex x=-3 y=0 z=3 u=1 v=0 n1=0 n2=0 n3=-1 t=2
 end
 plane
+texture
+Data/Textures/floor.png
 vertex x=3  y=0 z=-3 u=1 v=1 n1=0 n2=1 n3=0 t=2
 vertex x=-3 y=0 z=-3 u=0 v=1 n1=0 n2=1 n3=0 t=2
-vertex x=-3 y=0 z=3 u=0 v=0 n1=0 n2=1 n3=0 t=2
-vertex x=3  y=0 z=3 u=1 v=0 n1=0 n2=1 n3=0 t=2
+vertex x=-3 y=0 z=3 u=0  v=0 n1=0 n2=1 n3=0 t=2
+vertex x=3  y=0 z=3 u=1  v=0 n1=0 n2=1 n3=0 t=2
 end
 plane
+texture
+Data/Textures/ceiling.png
 vertex x=3  y=3 z=3 u=1  v=1 n1=0 n2=-1 n3=0 t=2
 vertex x=-3 y=3 z=3 u=0  v=1 n1=0 n2=-1 n3=0 t=2
 vertex x=-3 y=3 z=-3 u=0 v=0 n1=0 n2=-1 n3=0 t=2
 vertex x=3  y=3 z=-3 u=1 v=0 n1=0 n2=-1 n3=0 t=2
 end
 plane
+texture
+Data/Textures/wall.png
 vertex x=3 y=3 z=3  u=1 v=1 n1=-1 n2=0 n3=0 t=2
 vertex x=3 y=3 z=-3 u=0 v=1 n1=-1 n2=0 n3=0 t=2
 vertex x=3 y=0 z=-3 u=0 v=0 n1=-1 n2=0 n3=0 t=2
 vertex x=3 y=0 z=3  u=1 v=0 n1=-1 n2=0 n3=0 t=2
 end
 plane
+texture
+Data/Textures/wall.png
 vertex x=-3 y=3 z=-3 u=1 v=1 n1=1 n2=0 n3=0 t=2
 vertex x=-3 y=3 z=3  u=0 v=1 n1=1 n2=0 n3=0 t=2
 vertex x=-3 y=0 z=3  u=0 v=0 n1=1 n2=0 n3=0 t=2
 vertex x=-3 y=0 z=-3 u=1 v=0 n1=1 n2=0 n3=0 t=2
 end
 plane
-vertex x=1.2  y=0.8 z=-0 u=1 v=1 n1=0 n2=0 n3=1 t=2
-vertex x=-1.2 y=0.8 z=-0 u=0 v=1 n1=0 n2=0 n3=1 t=2
-vertex x=-1.2 y=0   z=-0 u=0 v=0 n1=0 n2=0 n3=1 t=2
-vertex x=1.2  y=0   z=-0 u=1 v=0 n1=0 n2=0 n3=1 t=2
+texture
+Data/Textures/bedend.png
+vertex x=1.2  y=0.8 z=-0 u=1 v=0 n1=0 n2=0 n3=1 t=2
+vertex x=-1.2 y=0.8 z=-0 u=0 v=0 n1=0 n2=0 n3=1 t=2
+vertex x=-1.2 y=0   z=-0 u=0 v=1 n1=0 n2=0 n3=1 t=2
+vertex x=1.2  y=0   z=-0 u=1 v=1 n1=0 n2=0 n3=1 t=2
 end
 plane
-vertex x=1.2  y=0.8 z=-3 u=1 v=1 n1=0 n2=1 n3=0 t=2
-vertex x=-1.2 y=0.8 z=-3 u=0 v=1 n1=0 n2=1 n3=0 t=2
-vertex x=-1.2 y=0.8 z=-0 u=0 v=0 n1=0 n2=1 n3=0 t=2
-vertex x=1.2  y=0.8 z=-0 u=1 v=0 n1=0 n2=1 n3=0 t=2
+texture
+Data/Textures/bedtop.png
+vertex x=1.2  y=0.8 z=-3 u=1 v=0 n1=0 n2=1 n3=0 t=2
+vertex x=-1.2 y=0.8 z=-3 u=0 v=0 n1=0 n2=1 n3=0 t=2
+vertex x=-1.2 y=0.8 z=-0 u=0 v=1 n1=0 n2=1 n3=0 t=2
+vertex x=1.2  y=0.8 z=-0 u=1 v=1 n1=0 n2=1 n3=0 t=2
 end
 plane
-vertex x=1.2 y=0.8 z=-3 u=1 v=1 n1=1 n2=0 n3=0 t=2
-vertex x=1.2 y=0.8 z=0  u=0 v=1 n1=1 n2=0 n3=0 t=2
-vertex x=1.2 y=0   z=0  u=0 v=0 n1=1 n2=0 n3=0 t=2
-vertex x=1.2 y=0   z=-3 u=1 v=0 n1=1 n2=0 n3=0 t=2
+texture
+Data/Textures/bedside.png
+vertex x=1.2 y=0.8 z=-3 u=1 v=0 n1=1 n2=0 n3=0 t=2
+vertex x=1.2 y=0.8 z=0  u=0 v=0 n1=1 n2=0 n3=0 t=2
+vertex x=1.2 y=0   z=0  u=0 v=1 n1=1 n2=0 n3=0 t=2
+vertex x=1.2 y=0   z=-3 u=1 v=1 n1=1 n2=0 n3=0 t=2
 end
 plane
-vertex x=-1.2 y=0.8 z=0   u=1 v=1 n1=-1 n2=0 n3=0 t=2
-vertex x=-1.2 y=0.8 z=-3  u=0 v=1 n1=-1 n2=0 n3=0 t=2
-vertex x=-1.2 y=0   z=-3  u=0 v=0 n1=-1 n2=0 n3=0 t=2
-vertex x=-1.2 y=0   z=0   u=1 v=0 n1=-1 n2=0 n3=0 t=2
+texture
+Data/Textures/bedside.png
+vertex x=-1.2 y=0.8 z=0   u=0 v=0 n1=-1 n2=0 n3=0 t=2
+vertex x=-1.2 y=0.8 z=-3  u=1 v=0 n1=-1 n2=0 n3=0 t=2
+vertex x=-1.2 y=0   z=-3  u=1 v=1 n1=-1 n2=0 n3=0 t=2
+vertex x=-1.2 y=0   z=0   u=0 v=1 n1=-1 n2=0 n3=0 t=2
 end
 	

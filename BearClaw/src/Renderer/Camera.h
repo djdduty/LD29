@@ -34,6 +34,8 @@ public:
     Mat4& GetProjection();
     Vec3& GetPosition()         {   return m_Position;                          }
     Vec3& GetRotation()         {   return m_Rotation;                          }
+	void SetPosition(Vec3 Pos)  {	m_Position = Pos;							}
+	void SetRotation(Vec3 Rot)  {	m_Rotation = Rot;							}
 };
 }
 

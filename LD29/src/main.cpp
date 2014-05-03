@@ -7,6 +7,8 @@
 #include <System/Environment.h>
 #include <MainState.h>
 
+#include <Windows.h>
+
 using namespace BearClaw;
 using namespace LD29;
 

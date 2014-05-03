@@ -61,4 +61,8 @@ namespace LD29 {
 	{
 		m_Mesh->Render();
 	}
+
+	void PlaneComponent::SetTexture(string tname) {
+		m_Material->SetDiffuseTex(tname);
+	}
 }

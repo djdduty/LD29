@@ -20,6 +20,8 @@ private:
 	FontString* m_PlayString;
 	FontString* m_QuitString;
 	FontString* m_AboutString;
+	FontString* m_ControlsString;
+	FontString* m_ControlsString2;
 
 	StateManager* m_Manager;
 

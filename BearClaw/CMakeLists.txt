@@ -27,7 +27,7 @@ endif()
 
 add_library(BearClaw ${BUILD_MODE} ${bc_top_SOURCES} ${bc_components_SOURCES} ${bc_events_SOURCES} ${bc_renderer_SOURCES} ${bc_renderer_main_SOURCES} ${bc_renderer_utils_SOURCES} ${bc_resource_SOURCES} ${bc_scene_SOURCES} ${bc_system_SOURCES} ${bc_system_os_SOURCES} ${bc_system_file_SOURCES} ${bc_utils_SOURCES} ${bc_utils_math_SOURCES} ${bc_system_states_SOURCES} ${bc_gui_SOURCES})
 
-target_link_libraries(BearClaw Soil Glew Glfw assimp zlib ${GL_LIBRARIES} ${GLFW_LIBRARIES})
+target_link_libraries(BearClaw Soil Glew Glfw zlib ${GL_LIBRARIES} ${GLFW_LIBRARIES})
 
 source_group("BearClaw" FILES ${bc_top_SOURCES})
 source_group("BearClaw\\Components" FILES ${bc_components_SOURCES})

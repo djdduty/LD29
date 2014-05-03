@@ -34,10 +34,10 @@ namespace BearClaw {
 		Vec3 BottomRight = Vec3(w/2, -h/2, 0);
 
 		VertexList Verts = VertexList();
-		Verts.push_back(Vertex(Vec3(TopRight), Vec3(0, 0, -1), Vec2(1, 1)));
-		Verts.push_back(Vertex(Vec3(TopLeft), Vec3(0, 0, -1), Vec2(0, 1)));
-		Verts.push_back(Vertex(Vec3(BottomLeft), Vec3(0, 0, -1), Vec2(0, 0)));
-		Verts.push_back(Vertex(Vec3(BottomRight), Vec3(0, 0, -1), Vec2(1, 0)));
+		Verts.push_back(Vertex(Vec3(TopRight), Vec3(0, 0, -1), Vec2(1, 0)));
+		Verts.push_back(Vertex(Vec3(TopLeft), Vec3(0, 0, -1), Vec2(0, 0)));
+		Verts.push_back(Vertex(Vec3(BottomLeft), Vec3(0, 0, -1), Vec2(0, 1)));
+		Verts.push_back(Vertex(Vec3(BottomRight), Vec3(0, 0, -1), Vec2(1, 1)));
 
 		IndexList Indices = IndexList();
 		Indices.push_back(0);

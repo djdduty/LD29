@@ -23,6 +23,7 @@ public:
     StateManager(State* S);
     ~StateManager();
     void Init(GameApp* G);
+	void DeInit();
     void ChangeState(State* S);
     void ChangeState(State* S, std::string StoreStateAliveKey);
     void SetActiveState(std::string Key);

@@ -18,12 +18,15 @@ private:
     string m_NormalTex;
     Vec4 m_DiffuseColor;
     f32 m_Specular;
+	Vec2 m_UVAdd;
+
     bool m_FlagsNeedUpdate;
     bool m_HasNormalMap;
     bool m_HasDiffuseMap;
     bool m_HasSpecular;
     bool m_UseDefaultShader;
     bool m_UseFontShader;
+	bool m_IsBillboard;
 
     string m_VertShader;//todo: add setter
     string m_FragShader;//todo: add setter
@@ -49,6 +52,8 @@ private:
     
     GLuint m_DiffuseColorLoc;
 
+	GLuint m_UVMultLoc;
+
 public:
     Material(RenderNode* Owner);
     Material(RenderNode* Owner, string DiffuseTex);
@@ -65,6 +70,10 @@ public:
     void SetDiffuseColor(Vec4 DiffuseColor);
     void SetNormalTex(string NormalTex);
     void SetSpecular(f32 Specular);
+	void SetUVAdd(Vec2 mult) { m_UVAdd = mult; }
+	void SetBillboard(bool b) { m_IsBillboard = b; }
+
+	bool GetUseFontShader() { return m_UseFontShader; }
 
     void Bind();
     void Update();

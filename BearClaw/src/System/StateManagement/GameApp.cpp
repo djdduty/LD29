@@ -40,7 +40,7 @@ void GameApp::Start()
         
         GameWindow->SwapBuffers();
     }
-
+	m_StateManager->DeInit();
     GameWindow->Destroy();
 }
 }

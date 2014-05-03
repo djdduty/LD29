@@ -1,4 +1,5 @@
 #include <Renderer/Renderer.h>
+#include <vector>
 
 namespace BearClaw {
 
@@ -109,6 +110,9 @@ void Renderer::Render()
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+	std::vector<StrongRenderNodePtr> AfterList = std::vector<StrongRenderNodePtr>();
+	std::vector<StrongRenderNodePtr> TwoDList = std::vector<StrongRenderNodePtr>();
+
     if(m_SceneHasBeenSet)
     {
         glEnable(GL_DEPTH_TEST);
@@ -116,15 +120,42 @@ void Renderer::Render()
         
         for(RenderNodes::iterator it = m_RenderScene->m_Children.begin(); it != m_RenderScene->m_Children.end(); it++)
         {
-            if(it->second->IsVisible())
-            {
-                it->second->PreRender();
-                it->second->Render();
-                it->second->PostRender();
+			if (it->second->IsVisible())
+			{
+				if (!it->second->pRenderLast && !it->second->GetMaterial()->GetUseFontShader()) {
+					it->second->PreRender();
+					it->second->Render();
+					it->second->PostRender();
+				} else {
+					if (it->second->GetMaterial()->GetUseFontShader()) TwoDList.push_back(it->second);
+					else AfterList.push_back(it->second);
+				}
             }
         }
+
+		glClear(GL_DEPTH_BUFFER_BIT);
+		for (i32 i = 0; i < AfterList.size(); i++) {
+			StrongRenderNodePtr n = AfterList[i];
+			if (n->IsVisible()) {
+				n->PreRender();
+				n->Render();
+				n->PostRender();
+			}
+		}
+
+		for (i32 n = 0; n < TwoDList.size(); n++) {
+			glClear(GL_DEPTH_BUFFER_BIT);
+			StrongRenderNodePtr r = TwoDList[n];
+			if (r->IsVisible()) {
+				r->PreRender();
+				r->Render();
+				r->PostRender();
+			}
+		}
+
+		AfterList.clear();
+		TwoDList.clear();
     }
 
-    glClear(GL_DEPTH_BUFFER_BIT);
 }
 }

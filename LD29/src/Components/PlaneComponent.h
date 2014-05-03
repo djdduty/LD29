@@ -27,6 +27,8 @@ public:
 	void InitRenderNode();
 	void Render();
 
+	void SetTexture(string tname);
+
 	//misc
 	void CreateVBO();
 	void CreateIBO();

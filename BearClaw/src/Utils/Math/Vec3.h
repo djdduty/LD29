@@ -21,7 +21,7 @@ public:
     Vec3& operator-=(const Vec3 &r) {x-=r.x, y-=r.y; z-=r.z; return* this;      }
     Vec3& operator*=(f32 f)         {x*=f; y*=f; z*=f; return* this;            }
 
-    void Print() const              {printf("(%.02f, %.02f, %.02f", x, y, z);   }
+    void Print() const              {printf("(%.02f, %.02f, %.02f\n", x, y, z);   }
 
     Vec3 Cross(const Vec3 &v) const
     {
@@ -35,6 +35,10 @@ public:
 
         return Ret;
     }
+
+	f32 LengthSquared() {
+		return x * x + y * y + z * z;
+	}
 
     Vec3& Normalize()
     {

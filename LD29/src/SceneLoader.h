@@ -29,10 +29,12 @@ class PlaneInstance
 {
 public:
 	VertexList Vertices;
-	PlaneInstance() { Vertices = VertexList(); }
+	string TexName;
+	bool SkyBox;
+	PlaneInstance() { Vertices = VertexList(); TexName = ""; SkyBox = false; }
 };
 
-typedef std::vector<PlaneInstance> PlaneList;
+typedef std::vector<PlaneInstance*> PlaneList;
 typedef std::vector<string> LineList;
 
 class SceneLoader

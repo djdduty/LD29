@@ -12,12 +12,12 @@ SceneNode::SceneNode(BcString Name)
     m_IsUpdatingAfterChange = false;
     m_ShouldDie             = false;
     m_ParentHasBeenSet      = false;
+	m_Position = Vec3(0, 0, 0);
+	m_Rotation = Vec3(0, 0, 0);
 }
 
 SceneNode::~SceneNode()
-{
-
-}
+{}
 
 void SceneNode::OnInit() {}
 void SceneNode::Init()
@@ -40,6 +40,7 @@ void SceneNode::DeInit()
         while(m_Children.size() > 0)
         {
             RemoveChild(m_Children.begin()->first);
+			BC_LOG("HELLO");
         }
 
         while(m_Components.size() > 0)
@@ -96,6 +97,32 @@ StrongNodePtr SceneNode::FindChild(BcString Name, bool recursive)
     }
 
     return StrongNodePtr();
+}
+
+StrongNodePtr SceneNode::FindChild(uid ID, bool recursive)
+{
+	for (SceneNodes::iterator it = m_Children.begin(); it != m_Children.end(); it++)
+	{
+		if (it->second->GetID() == ID)
+			return it->second;
+	}
+
+	if (recursive)
+	{
+		for (SceneNodes::iterator it = m_Children.begin(); it != m_Children.end(); it++)
+		{
+			if (it->second->GetID() == ID)
+				return it->second;
+			else
+			{
+				const StrongNodePtr& Child = it->second->FindChild(ID, recursive);
+				if (Child)
+					return Child;
+			}
+		}
+	}
+
+	return StrongNodePtr();
 }
 
 bool SceneNode::HasComponent(BcString name)
@@ -156,6 +183,7 @@ Scene* SceneNode::GetScene()
     return m_Parent->GetScene();
 }
 
+void SceneNode::OnUpdate(f64 DeltaTime) {}
 void SceneNode::Update(f64 DeltaTime)
 {
     if(m_Enabled)
@@ -163,6 +191,7 @@ void SceneNode::Update(f64 DeltaTime)
         UpdateAllChildren(DeltaTime);
         UpdateAllComponents(DeltaTime);
     }
+	OnUpdate(DeltaTime);
 }
 
 bool SceneNode::IsScene()
@@ -216,18 +245,20 @@ bool SceneNode::GetEnabled()
 void SceneNode::OnEnable() {}
 void SceneNode::Enable()
 {
-    if(!m_ParentHasBeenSet || m_Parent->GetEnabled())
-    {
-        m_Enabled = true;
+	if (!m_Enabled) {
+		if (!m_ParentHasBeenSet || m_Parent->GetEnabled())
+		{
+			m_Enabled = true;
 
-        for(SceneNodes::iterator it = m_Children.begin(); it != m_Children.end(); it++)
-            it->second->Enable();
+			for (SceneNodes::iterator it = m_Children.begin(); it != m_Children.end(); it++)
+				it->second->Enable();
 
-        for(Components::iterator it = m_Components.begin(); it != m_Components.end(); it++)
-            it->second->Enable();
+			for (Components::iterator it = m_Components.begin(); it != m_Components.end(); it++)
+				it->second->Enable();
 
-        OnEnable();
-    }
+			OnEnable();
+		}
+	}
 }
 
 
@@ -246,5 +277,10 @@ void SceneNode::Disable()
 
         OnDisable();
     }
+}
+
+void SceneNode::OnAction(i32 type) {}
+void SceneNode::Action(i32 type) {
+	OnAction(type);
 }
 }

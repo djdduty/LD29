@@ -18,34 +18,39 @@ Scene* SceneLoader::Parse()
 	}
 
 	std::vector<PlaneEntry> PlaneEntries = std::vector<PlaneEntry>();
+	PlaneInstance* Plane = new PlaneInstance();
 
-	for (int i = 0; i < m_Lines.size(); i++) {
+	for (i32 i = 0; i < m_Lines.size(); i++) {
 		string Line = m_Lines[i];
 		PlaneEntry Entry;
 		string Word;
 		if (Line == "plane") {
 			PlaneEntries = std::vector<PlaneEntry>();
+			Plane = new PlaneInstance();
 			Word = "";
 			//BC_LOG("new plane on line %d\n", i);
 		} else if (Line == "end") {
-			PlaneInstance Plane;
-			for (int x = 0; x < PlaneEntries.size(); x++) {
+			for (i32 x = 0; x < PlaneEntries.size(); x++) {
 				PlaneEntry tmp = PlaneEntries[x];
-				Plane.Vertices.push_back(Vertex(Vec3(tmp.x, tmp.y, tmp.z), Vec3(tmp.n1, tmp.n2, tmp.n3), Vec2(tmp.u, tmp.v)));
-				//BC_LOG("x:%f y:%f z:%f\n\n", tmp.x, tmp.y, tmp.z);
+				Plane->Vertices.push_back(Vertex(Vec3(tmp.x, tmp.y, tmp.z), Vec3(tmp.n1, tmp.n2, tmp.n3), Vec2(tmp.u, tmp.v)));
 			}
-			Word = "";
-			//BC_LOG("end of plane on line %d\n", i);
-			PlaneEntries = std::vector<PlaneEntry>();
 			m_Planes.push_back(Plane);
+			Word = "";
+		} else if (Line == "sky") {
+			Plane->SkyBox = true;
+			Word = "";
+		} else if (Line == "texture") {
+			string Texture = m_Lines[i + 1];
+			Plane->TexName = Texture;
+			i++;
 		} else {
-			for (int n = 0; n < Line.size(); n++) {
+			for (i32 n = 0; n < Line.size(); n++) {
 				Byte c = Line[n];
 				if (c != ' ') {
 					Word += c;
-					//std::cout << c;
-				} else {
-					Entry = ParseWord(Word, Entry);
+				}
+				else {
+					if (Word != "") Entry = ParseWord(Word, Entry);
 					Word = "";
 				}
 			}
@@ -53,11 +58,30 @@ Scene* SceneLoader::Parse()
 		}
 	}
 
-	for (int y = 0; y < m_Planes.size(); y++) {
-		PlaneInstance p = m_Planes[y];
+	ShaderFlags* FlagsDefault = new ShaderFlags();
+	FlagsDefault->DefaultShader = false;
+	FlagsDefault->HasDiffuseColor = true;
+	FlagsDefault->LightingShader = true;
+	HLShaderWrapper* Shader = new HLShaderWrapper("Data/Shaders/SkyBox.vert", "Data/Shaders/SkyBox.frag", FlagsDefault);
+
+	Shader->Enable();
+	Shader->SetProgramOutput(0, "FragColor");
+	Shader->SetVertexAttrib(ShaderProgram::TEXTURE_COORD_ATTRIB, "Texcoord");
+	Shader->SetVertexAttrib(ShaderProgram::VERTEX_COORD_ATTRIB, "Position");
+	Shader->SetVertexAttrib(ShaderProgram::TANGENT_ATTRIB, "Tangent");
+	Shader->SetVertexAttrib(ShaderProgram::NORMAL_ATTRIB, "Normal");
+
+	Shader->LinkProgram();
+
+	Environ->GetShaderManager()->AddShader(Shader);
+
+	for (i32 y = 0; y < m_Planes.size(); y++) {
+		PlaneInstance* p = m_Planes[y];
 		SceneNode* n = new SceneNode("planeNode" + y);
 		s->AddChild(n);
-		PlaneComponent* pl = new PlaneComponent("planeComponent" + y, p.Vertices);
+		PlaneComponent* pl = new PlaneComponent("planeComponent" + y, p->Vertices);
+		pl->SetTexture(p->TexName);
+		//std::cout << "Texture " << p->TexName << std::endl;
 		n->AddComponent(pl);
 		//BC_LOG("Adding plane to scene\n");
 	}
@@ -71,7 +95,7 @@ PlaneEntry SceneLoader::ParseWord(string Word, PlaneEntry Entry)
 	string Property;
 	string Value;
 	bool OnValue = false;
-	for (int i = 0; i < Word.size(); i++) {
+	for (i32 i = 0; i < Word.size(); i++) {
 		if (Word[i] != '=') {
 			if (!OnValue) Property += Word[i];
 			else Value += Word[i];

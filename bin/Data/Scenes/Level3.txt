@@ -1,0 +1,51 @@
+plane
+texture
+Data/Textures/ceiling.png
+vertex x=15  y=5 z=-15 u=1 v=1 n1=0 n2=0 n3=1 t=2
+vertex x=-15 y=5 z=-15 u=0 v=1 n1=0 n2=0 n3=1 t=2
+vertex x=-15 y=0 z=-15 u=0 v=0 n1=0 n2=0 n3=1 t=2
+vertex x=15  y=0 z=-15 u=1 v=0 n1=0 n2=0 n3=1 t=2
+end
+plane
+texture
+Data/Textures/ceiling.png
+vertex x=-15 y=5 z=15 u=1 v=1 n1=0 n2=0 n3=-1 t=2
+vertex x=15  y=5 z=15 u=0 v=1 n1=0 n2=0 n3=-1 t=2
+vertex x=15  y=0 z=15 u=0 v=0 n1=0 n2=0 n3=-1 t=2
+vertex x=-15 y=0 z=15 u=1 v=0 n1=0 n2=0 n3=-1 t=2
+end
+plane
+texture
+Data/Textures/Ground.png
+vertex x=15  y=0 z=-15 u=1 v=0 n1=0 n2=1 n3=0 t=2
+vertex x=-15 y=0 z=-15 u=0 v=0 n1=0 n2=1 n3=0 t=2
+vertex x=-15 y=0 z=15 u=0  v=1 n1=0 n2=1 n3=0 t=2
+vertex x=15  y=0 z=15 u=1  v=1 n1=0 n2=1 n3=0 t=2
+end
+plane
+texture
+Data/Textures/wall.png
+vertex x=15  y=5 z=15 u=1  v=1 n1=0 n2=-1 n3=0 t=2
+vertex x=-15 y=5 z=15 u=0  v=1 n1=0 n2=-1 n3=0 t=2
+vertex x=-15 y=5 z=-15 u=0 v=0 n1=0 n2=-1 n3=0 t=2
+vertex x=15  y=5 z=-15 u=1 v=0 n1=0 n2=-1 n3=0 t=2
+end
+plane
+texture
+Data/Textures/ceiling.png
+vertex x=15 y=5 z=15  u=1 v=1 n1=-1 n2=0 n3=0 t=2
+vertex x=15 y=5 z=-15 u=0 v=1 n1=-1 n2=0 n3=0 t=2
+vertex x=15 y=0 z=-15 u=0 v=0 n1=-1 n2=0 n3=0 t=2
+vertex x=15 y=0 z=15  u=1 v=0 n1=-1 n2=0 n3=0 t=2
+end
+plane
+texture
+Data/Textures/ceiling.png
+vertex x=-15 y=5 z=-15 u=1 v=1 n1=1 n2=0 n3=0 t=2
+vertex x=-15 y=5 z=15  u=0 v=1 n1=1 n2=0 n3=0 t=2
+vertex x=-15 y=0 z=15  u=0 v=0 n1=1 n2=0 n3=0 t=2
+vertex x=-15 y=0 z=-15 u=1 v=0 n1=1 n2=0 n3=0 t=2
+end
+plane
+texture
+	

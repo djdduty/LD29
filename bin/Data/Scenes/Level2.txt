@@ -1,0 +1,86 @@
+plane
+texture
+Data/Textures/grass.png
+vertex x=30  y=0 z=-30 u=1 v=0 n1=0 n2=1 n3=0 t=2
+vertex x=-30 y=0 z=-30 u=0 v=0 n1=0 n2=1 n3=0 t=2
+vertex x=-30 y=0 z=30 u=0  v=1 n1=0 n2=1 n3=0 t=2
+vertex x=30  y=0 z=30 u=1  v=1 n1=0 n2=1 n3=0 t=2
+end
+plane
+texture
+Data/Textures/hedge.png
+vertex x=30  y=6 z=-30 u=1 v=0 n1=0 n2=0 n3=1 t=2
+vertex x=-30 y=6 z=-30 u=0 v=0 n1=0 n2=0 n3=1 t=2
+vertex x=-30 y=0 z=-30 u=0 v=1 n1=0 n2=0 n3=1 t=2
+vertex x=30  y=0 z=-30 u=1 v=1 n1=0 n2=0 n3=1 t=2
+end
+plane
+texture
+Data/Textures/hedge.png
+vertex x=-30 y=6 z=30 u=1 v=0 n1=0 n2=0 n3=-1 t=2
+vertex x=30  y=6 z=30 u=0 v=0 n1=0 n2=0 n3=-1 t=2
+vertex x=30  y=0 z=30 u=0 v=1 n1=0 n2=0 n3=-1 t=2
+vertex x=-30 y=0 z=30 u=1 v=1 n1=0 n2=0 n3=-1 t=2
+end
+plane
+texture
+Data/Textures/hedge.png
+vertex x=30 y=6 z=30  u=1 v=0 n1=-1 n2=0 n3=0 t=2
+vertex x=30 y=6 z=-30 u=0 v=0 n1=-1 n2=0 n3=0 t=2
+vertex x=30 y=0 z=-30 u=0 v=1 n1=-1 n2=0 n3=0 t=2
+vertex x=30 y=0 z=30  u=1 v=1 n1=-1 n2=0 n3=0 t=2
+end
+plane
+texture
+Data/Textures/hedge.png
+vertex x=-30 y=6 z=-30 u=1 v=0 n1=1 n2=0 n3=0 t=2
+vertex x=-30 y=6 z=30  u=0 v=0 n1=1 n2=0 n3=0 t=2
+vertex x=-30 y=0 z=30  u=0 v=1 n1=1 n2=0 n3=0 t=2
+vertex x=-30 y=0 z=-30 u=1 v=1 n1=1 n2=0 n3=0 t=2
+end
+plane
+sky
+texture
+Data/Textures/RainbowSky.png
+vertex x=300  y=300 z=-300 u=1 v=0 n1=0 n2=0 n3=1 t=2
+vertex x=-300 y=300 z=-300 u=0 v=0 n1=0 n2=0 n3=1 t=2
+vertex x=-300 y=0 z=-300 u=0 v=0.7 n1=0 n2=0 n3=1 t=2
+vertex x=300  y=0 z=-300 u=1 v=0.7 n1=0 n2=0 n3=1 t=2
+end
+plane
+sky
+texture
+Data/Textures/RainbowSky.png
+vertex x=-300 y=300 z=300 u=0.1 v=0 n1=0 n2=0 n3=-1 t=2
+vertex x=300  y=300 z=300 u=0 v=0 n1=0 n2=0 n3=-1 t=2
+vertex x=300  y=0 z=300   u=0 v=0.1 n1=0 n2=0 n3=-1 t=2
+vertex x=-300 y=0 z=300   u=0.1 v=0.1 n1=0 n2=0 n3=-1 t=2
+end
+plane
+sky
+texture
+Data/Textures/RainbowSky.png
+vertex x=300 y=300 z=300  u=0.1 v=0 n1=-1 n2=0 n3=0 t=2
+vertex x=300 y=300 z=-300 u=0 v=0 n1=-1 n2=0 n3=0 t=2
+vertex x=300 y=0 z=-300   u=0 v=0.1 n1=-1 n2=0 n3=0 t=2
+vertex x=300 y=0 z=300    u=0.1 v=0.1 n1=-1 n2=0 n3=0 t=2
+end
+plane
+sky
+texture
+Data/Textures/RainbowSky.png
+vertex x=-300 y=300 z=-300 u=0.1 v=0 n1=1 n2=0 n3=0 t=2
+vertex x=-300 y=300 z=300  u=0 v=0 n1=1 n2=0 n3=0 t=2
+vertex x=-300 y=0 z=300    u=0 v=0.1 n1=1 n2=0 n3=0 t=2
+vertex x=-300 y=0 z=-300   u=0.1 v=0.1 n1=1 n2=0 n3=0 t=2
+end
+plane
+sky
+texture
+Data/Textures/RainbowSky.png
+vertex x=300  y=300 z=300  u=0.1 v=0 n1=0 n2=-1 n3=0 t=2
+vertex x=-300 y=300 z=300  u=0 v=0 n1=0 n2=-1 n3=0 t=2
+vertex x=-300 y=300 z=-300 u=0 v=0.1 n1=0 n2=-1 n3=0 t=2
+vertex x=300  y=300 z=-300 u=0.1 v=0.1 n1=0 n2=-1 n3=0 t=2
+end
+

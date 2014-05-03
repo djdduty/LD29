@@ -47,6 +47,7 @@ void InputManager::RemoveMouseMoveCB(MouseMoveCB CB)
             m_MouseMoveCBs.erase(m_MouseMoveCBs.begin()+i);
             return;
         }
+		//m_MouseMoveCBs.erase(m_MouseMoveCBs.begin() + i);
     }
 }
 
@@ -77,6 +78,7 @@ void InputManager::OnMouseMove(double x, double y)
     {
         MouseMoveCB MMCB = m_MouseMoveCBs[i];
         MMCB(x, y);
+		//printf("MouseMove Callback %d", i);
     }
 }
 

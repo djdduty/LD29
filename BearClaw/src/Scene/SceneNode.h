@@ -27,6 +27,9 @@ protected:
     BcString    m_Name;
     bool        IsScene();
     SceneNode*  m_Parent;
+	
+	Vec3 m_Position;
+	Vec3 m_Rotation;
 
     //Functions
     void UpdateAllComponents(f64 DeltaTime);
@@ -54,7 +57,8 @@ public:
 
     //Children functions
     StrongNodePtr   AddChild(SceneNode* Node);
-    StrongNodePtr   FindChild(BcString Name, bool recursive = true);
+	StrongNodePtr   FindChild(BcString Name, bool recursive = true);
+	StrongNodePtr   FindChild(uid ID, bool recursive = true);
     void            RemoveChild(BcString Name);
     //
 
@@ -97,6 +101,7 @@ public:
 
     //Setters
     void SetParent(SceneNode* Parent);
+	void SetPosition(Vec3 Pos) { m_Position = Pos; }
     //
 
     //Getters
@@ -104,6 +109,9 @@ public:
     BcString GetName();
     virtual Scene* GetScene();
     bool GetEnabled();
+	Vec3 GetPosition() { return m_Position; }
+	Vec3 GetRotation() { return m_Rotation; }
+	uid GetID() { return m_Id; }
     //
 
     //virtual misc
@@ -111,8 +119,13 @@ public:
     virtual void OnDeInit();
     virtual void OnEnable();
     virtual void OnDisable();
+	virtual void OnUpdate(f64 DeltaTime);
     virtual void Update(f64 DeltaTime);
     //
+
+	//hacky hacky
+	void Action(i32 type);
+	virtual void OnAction(i32 type);
 };
 }
 

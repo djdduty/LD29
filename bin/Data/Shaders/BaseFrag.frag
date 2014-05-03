@@ -11,9 +11,12 @@ uniform int UseSpecular;
 
 uniform vec4 DiffuseColor;
 
+uniform vec2 UVAdd;
+
 in vec2 UV;
 in vec3 Norm;
 in vec3 Tang;
+in vec4 WorldPos;
 
 out vec4 FragColor;
 
@@ -32,6 +35,35 @@ vec3 CalcBumpedNormal()
     return NewNormal;
 }
 
+vec4 CalcPointLight(vec3 NormalFinal) 
+{
+	vec3 LightPos = vec3(0,20,0);
+	vec3 LightColor = vec3(1,1,1);
+	float LightIntensity = 10.0;
+	float AmbientIntensity = 0.3;
+	float AttenConst = 1.0;
+	float AttenLinear = 0.5;
+	float AttenExp = 0.5;
+	float Atten, Distance;
+	
+	vec3 LightDir = (WorldPos.xyz - LightPos);
+	float NdotL = max(dot(NormalFinal, -LightDir),0);
+	vec4 Color, DiffuseColor, AmbientColor;
+	Distance = length(LightDir);
+	
+	if(NdotL > 0.0) {
+		Atten = AttenConst + AttenLinear * Distance + AttenExp * Distance * Distance;
+		DiffuseColor = vec4(LightColor, 1.0) * LightIntensity * NdotL;
+		AmbientColor = vec4(LightColor, 1.0) * AmbientIntensity;
+		Color = DiffuseColor + AmbientColor;
+		vec4 retv = Color/Atten;
+		retv.a = 1.0;
+		return retv;
+	}
+	
+	return vec4(AmbientIntensity, AmbientIntensity, AmbientIntensity, 1.0);
+}
+
 void main()
 {
     vec3 Normal;
@@ -46,9 +78,11 @@ void main()
 
     if(UseDiffuseMap == 1)
     {
-        Color = texture(DiffuseMap, UV) * DiffuseColor;
+        Color = texture(DiffuseMap, vec2(UV.x+UVAdd.x, UV.y+UVAdd.y)) * DiffuseColor;
     } else {
         Color = DiffuseColor;
     }
-    FragColor = vec4(Norm,1);//Color;
+    
+    if(Color.a < 0.5) discard;
+    FragColor = Color;// * CalcPointLight(Normal);
 }
